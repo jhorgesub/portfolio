@@ -58,8 +58,13 @@ export class Projects {
                 { name: 'Tailwind', icon: TECH_ICONS['Tailwind'].icon, color: TECH_ICONS['Tailwind'].color },
                 { name: 'Docker', icon: TECH_ICONS['Docker'].icon, color: TECH_ICONS['Docker'].color }
             ],
-            image: '/CRM_NoCountry.png',
-            carouselImages: ['/CRM_NoCountry.png'],
+            image: '/CRM/1.png',
+            carouselImages: [
+                '/CRM/1.png',
+                '/CRM/2.png',
+                '/CRM/3.png',
+                '/CRM/4.png',
+            ],
             githubLink: 'https://github.com/jhorgesub/crm-no-country.git'
         },
         {
@@ -95,7 +100,7 @@ export class Projects {
                 { name: 'HTML/CSS', icon: TECH_ICONS['HTML/CSS'].icon, color: TECH_ICONS['HTML/CSS'].color },
                 { name: 'JavaScript', icon: TECH_ICONS['JavaScript'].icon, color: TECH_ICONS['JavaScript'].color }
             ],
-            image: '/Jogo_Bonito.PNG',
+            image: 'imgJogoBonito/1.PNG',
             carouselImages: [
                 'imgJogoBonito/1.PNG',
                 'imgJogoBonito/2.PNG',

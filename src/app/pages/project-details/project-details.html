@@ -8,54 +8,73 @@
 
     <!-- Main Content Grid -->
     <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-start">
-        <div id="default-carousel" class="relative w-full" data-carousel="slide">
+        <!-- Left Column: Carousel + Thumbnails -->
+        <div class="space-y-4">
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
 
-            <!-- Carousel wrapper -->
-            <div class="relative h-56 overflow-hidden rounded-base md:h-96">
-                <!-- Items -->
-                @for (image of project()?.carouselImages; track $index) {
-                <div class="hidden duration-700 ease-in-out" [attr.data-carousel-item]="$index === 0 ? 'active' : '' ">
-                    <img [src]="image" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                        [alt]="project()?.title">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-base md:h-96">
+                    <!-- Items -->
+                    @for (image of project()?.carouselImages; track $index) {
+                    <div class="hidden duration-700 ease-in-out cursor-pointer"
+                        [attr.data-carousel-item]="$index === 0 ? 'active' : '' " (click)="openLightbox($index)">
+                        <img [src]="image"
+                            class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                            [alt]="project()?.title">
+                    </div>
+                    }
                 </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+                    @for (image of project()?.carouselImages; track $index) {
+                    <button type="button" class="w-3 h-3 rounded-full bg-gray-500/70 hover:bg-gray-400"
+                        [attr.aria-current]="$index === 0 ? 'true' : 'false'"
+                        [attr.aria-label]="'Slide ' + ($index + 1)" [attr.data-carousel-slide-to]="$index"></button>
+                    }
+                </div>
+                <!-- Slider controls -->
+                @if (project()?.carouselImages && project()!.carouselImages.length > 1) {
+                <button type="button"
+                    class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-prev>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m15 19-7-7 7-7" />
+                        </svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button"
+                    class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+                    data-carousel-next>
+                    <span
+                        class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                        <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m9 5 7 7-7 7" />
+                        </svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
                 }
             </div>
-            <!-- Slider indicators -->
-            <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                @for (image of project()?.carouselImages; track $index) {
-                <button type="button" class="w-3 h-3 rounded-full bg-white/50 hover:bg-white"
-                    [attr.aria-current]="$index === 0 ? 'true' : 'false'" [attr.aria-label]="'Slide ' + ($index + 1)"
-                    [attr.data-carousel-slide-to]="$index"></button>
-                }
-            </div>
-            <!-- Slider controls -->
+
+            <!-- Thumbnails -->
             @if (project()?.carouselImages && project()!.carouselImages.length > 1) {
-            <button type="button"
-                class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-prev>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m15 19-7-7 7-7" />
-                    </svg>
-                    <span class="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button"
-                class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                data-carousel-next>
-                <span
-                    class="inline-flex items-center justify-center w-10 h-10 rounded-base bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg class="w-5 h-5 text-white rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m9 5 7 7-7 7" />
-                    </svg>
-                    <span class="sr-only">Next</span>
-                </span>
-            </button>
+            <div class="flex gap-3 overflow-x-auto pb-2">
+                @for (image of project()?.carouselImages; track $index) {
+                <button type="button"
+                    class="flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 hover:scale-105 cursor-pointer"
+                    [class.border-accent]="$index === 0" [class.border-glass]="$index !== 0"
+                    (click)="openLightbox($index)">
+                    <img [src]="image" [alt]="'Thumbnail ' + ($index + 1)" class="w-full h-full object-cover">
+                </button>
+                }
+            </div>
             }
         </div>
 
@@ -102,5 +121,52 @@
 
     </div>
 </main>
+
+<!-- Lightbox Modal -->
+@if (showLightbox()) {
+<div class="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm"
+    (click)="closeLightbox()">
+    <!-- Close button -->
+    <button type="button" class="absolute top-4 right-4 text-white hover:text-accent transition-colors z-[10000]"
+        (click)="closeLightbox()">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+
+    <!-- Previous button -->
+    @if (currentImageIndex() > 0) {
+    <button type="button"
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-accent transition-colors z-[10000]"
+        (click)="previousImage(); $event.stopPropagation()">
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    }
+
+    <!-- Next button -->
+    @if (project()?.carouselImages && currentImageIndex() < project()!.carouselImages.length - 1) { <button
+        type="button"
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-accent transition-colors z-[10000]"
+        (click)="nextImage(); $event.stopPropagation()">
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+        </button>
+        }
+
+        <!-- Image container -->
+        <div class="max-w-[95vw] max-h-[95vh] flex items-center justify-center" (click)="$event.stopPropagation()">
+            <img [src]="project()?.carouselImages?.[currentImageIndex()]" [alt]="project()?.title"
+                class="max-w-full max-h-[95vh] object-contain rounded-lg shadow-2xl">
+        </div>
+
+        <!-- Image counter -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white bg-black/50 px-4 py-2 rounded-full">
+            {{ currentImageIndex() + 1 }} / {{ project()?.carouselImages?.length }}
+        </div>
+</div>
+}
 
 <app-footer />
