@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@theme {
+  /* Definimos tus colores y variables personalizadas */
+  --color-bg-dark: #1a1a1a;
+  --color-surface: #242424;
+  --color-accent: #10b981;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  
+  /* Fonts */
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-family-ubuntu: 'Ubuntu', sans-serif;
+
+  /* Gradientes y transiciones */
+  --background-image-accent-gradient: linear-gradient(135deg, #000000, #065f46, #10b981);
+  --ease-custom: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Animations */
+  --animate-morph: morph 8s ease-in-out infinite;
+  
+  @keyframes morph {
+    0%, 100% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+    50% {
+      border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%;
+    }
+  }
+}
+
+/* Aplicamos estilos directamente a las etiquetas base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    
+    /* Aplicamos tus variables */
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    min-height: 100dvh;
+    width: 100%;
+
+    /* Tu gradiente radial doble */
+    background-image: 
+      radial-gradient(circle at top right, rgba(6, 95, 70, 0.1), transparent),
+      radial-gradient(circle at bottom left, rgba(16, 185, 129, 0.1), transparent);
+    background-attachment: fixed;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-dark);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--background-image-accent-gradient);
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #10b981, #065f46, #000000);
+  }
+
+  .morph-image:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+  }
+}
