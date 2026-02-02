@@ -2,6 +2,10 @@
 
 Welcome to the source code of my personal portfolio. This project showcases my skills, projects, and experience as a **Full Stack Developer**.
 
+## 🌐 Live Demo
+You can check out the live version of this project here: 
+👉 [**Live Demo on Vercel**](https://portfolio-jorge-subeldia.vercel.app/)
+
 ## 🚀 Technologies Used
 
 - **Framework:** [Angular 21](https://angular.dev/) (leveraging Signals for efficient state management)
