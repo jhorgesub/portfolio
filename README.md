@@ -70,5 +70,6 @@ The build artifacts will be stored in the `dist/` directory.
 ## 📧 Contact
 
 **Jorge Subeldia**
+- **LinkedIn:** [linkedin.com/in/jorgesubeldia](https://www.linkedin.com/in/jorgesubeldia)
 - **Email:** [subel.jorgeto@gmail.com](mailto:subel.jorgeto@gmail.com)
 - **Location:** Resistencia, Chaco - Argentina
