@@ -89,8 +89,8 @@ export class ProjectsService {
       },
       fullDescription: {
         es: [
-          'JOGO BONITO es una plataforma integral para la gestión de reservas de canchas de Fútbol 5. El sistema optimiza la administración de alquileres mediante un panel de control para propietarios y una interfaz intuitiva para jugadores.',
-          'Desarrollado originalmente como proyecto final para la etapa 2 (Desarrollo Web) del Informatorio Chaco 2020, implementa una arquitectura basada en roles que garantiza seguridad y escalabilidad en el manejo de turnos y usuarios.'
+          'JOGO BONITO es una plataforma integral para la gestión de reservas de canchas de Fútbol 5. El sistema optimiza la administración de alquileres mediante un panel de control para propietarios y una interfaz intuitiva para jugadores,',
+          'implementando una arquitectura basada en roles que garantiza seguridad y escalabilidad en el manejo de turnos y usuarios.'
         ],
         en: [
           'JOGO BONITO is a comprehensive platform for sports center reservation management. The system optimizes rental administration through a dedicated control panel for owners and an intuitive interface for players.',

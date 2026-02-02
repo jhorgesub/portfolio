@@ -87,12 +87,9 @@
                 <h2 class="text-[2rem] mb-6 text-text-primary font-bold tex">
                     {{ lang() === 'es' ? project()?.description?.es : project()?.description?.en }}</h2>
 
-                @for (paragraph of (lang() === 'es' ? project()?.fullDescription?.es : project()?.fullDescription?.en);
-                track $index) {
-                <p class="text-text-secondary text-[1.05rem] leading-[1.8] mb-6 text-justify">
-                    {{paragraph}}
+                <p class="text-text-secondary text-[1.05rem] leading-[1.8] text-justify">
+                    {{ (lang() === 'es' ? project()?.fullDescription?.es : project()?.fullDescription?.en)?.join(' ') }}
                 </p>
-                }
 
             </div>
 

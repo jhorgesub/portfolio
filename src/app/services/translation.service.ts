@@ -47,7 +47,7 @@ export class TranslationService {
     socialTitle: { es: 'Sígueme', en: 'Follow Me' },
     cta: {
       es: '¿Tienes un proyecto en mente?',
-      en: 'Have a project in mind'
+      en: 'Have a project in mind?'
     },
     ctaLink: { es: '¡Hablemos!', en: "Let's chat!" },
     rights: { es: 'Todos los derechos reservados', en: 'All rights reserved' },

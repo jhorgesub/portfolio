@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { AboutService } from '../../services/about.service';
 import { TranslationService } from '../../services/translation.service';
+import { ProjectList } from "../project-list/project-list";
 
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [ProjectList],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })

@@ -7,7 +7,7 @@ import { Navbar } from '../../components/navbar/navbar';
 
 @Component({
   selector: 'app-home',
-  imports: [Hero, About, Contact, Footer, Navbar],
+  imports: [Hero, Contact, Footer, Navbar],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
