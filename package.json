@@ -40,6 +40,9 @@
     "tailwindcss": "^4.1.18",
     "tslib": "^2.3.0"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "devDependencies": {
     "@angular/build": "^21.1.0",
     "@angular/cli": "^21.1.0",
