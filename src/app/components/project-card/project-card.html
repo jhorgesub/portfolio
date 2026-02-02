@@ -1,43 +1,39 @@
-<div class="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-10 max-w-[1200px] mx-auto">
-    @for (card of cards; track $index) {
-    <div
-        class="bg-surface rounded-[20px] overflow-hidden border border-none transition-all duration-300 ease-in-out hover:border-accent hover:scale-[1.02] cursor-pointer">
-        <!-- Image Container -->
-        <a [routerLink]="['/project-details', card.id]" class="block">
-            <div class="w-full h-[200px] bg-cover bg-center transition-all duration-300 ease-in-out hover:-translate-y-2.5 
-                    hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] 
-                hover:border-[#dc143c]/30 border border-transparent transition-transform duration-300 hover:scale-105"
-                [style.backgroundImage]="'url(' + card.image + ')'">
-            </div>
-        </a>
-
-        <div class="p-8">
-            <h2 class="text-2xl mb-4 text-text-primary font-bold">{{ card.title }}</h2>
-            <p class="text-text-secondary text-[0.95rem] mb-6">{{ card.description }}</p>
-            <div class="flex gap-2 flex-wrap mt-4">
-                @for (tag of card.tags; track $index) {
-                <span
-                    class="text-xs bg-white/5 px-[0.8rem] py-[0.3rem] rounded-[50px] text-text-secondary border border-glass flex items-center gap-2">
-                    <i [class]="tag.icon" [style.color]="tag.color"></i>
-                    {{ tag.name }}
-                </span>
-                }
-            </div>
+<div
+    class="bg-surface rounded-[20px] overflow-hidden border border-none transition-all duration-300 ease-in-out hover:border-accent hover:scale-[1.02] cursor-pointer">
+    <!-- Image Container -->
+    <a [routerLink]="['/project-details', projectCardText().id]" class="block">
+        <div class="w-full h-[200px] bg-cover bg-center transition-all duration-300 ease-in-out hover:-translate-y-2.5 
+                hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] 
+            hover:border-[#dc143c]/30 border border-transparent transition-transform duration-300 hover:scale-105"
+            [style.backgroundImage]="'url(' + projectCardText().image + ')'">
         </div>
+    </a>
 
-        <div
-            class="card-projects-link absolute top-4 right-4 bg-surface/80 p-2 rounded-full backdrop-blur-sm border border-glass group hover:bg-accent transition-colors">
-            <a [href]="card.githubLink" target="blank" class="text-text-primary group-hover:text-white">
-                <i class="fab fa-github text-xl"></i>
-            </a>
-        </div>
-        <div class="pt-0 px-8 pb-8">
-            <button
-                class="w-full p-2 bg-transparent border border-accent rounded-[12px] transition-all duration-300 ease-custom hover:bg-accent/10">
-                <a class="text-accent no-underline font-semibold" [routerLink]="['/project-details', card.id]">Más
-                    detalles</a>
-            </button>
+    <div class="p-8">
+        <h2 class="text-2xl mb-4 text-text-primary font-bold">{{ projectCardText().title }}</h2>
+        <p class="text-text-secondary text-[0.95rem] mb-6">{{ projectCardText().description }}</p>
+        <div class="flex gap-2 flex-wrap mt-4">
+            @for (tag of projectCardText().tags; track $index) {
+            <span
+                class="text-xs bg-white/5 px-[0.8rem] py-[0.3rem] rounded-[50px] text-text-secondary border border-glass flex items-center gap-2">
+                <i [class]="tag.icon" [style.color]="tag.color"></i>
+                {{ tag.name }}
+            </span>
+            }
         </div>
     </div>
-    }
+
+    <div
+        class="card-projects-link absolute top-4 right-4 bg-surface/80 p-2 rounded-full backdrop-blur-sm border border-glass group hover:bg-accent transition-colors">
+        <a [href]="project().githubLink" target="blank" class="text-text-primary group-hover:text-white">
+            <i class="fab fa-github text-xl"></i>
+        </a>
+    </div>
+    <div class="pt-0 px-8 pb-8">
+        <button
+            class="w-full p-2 bg-transparent border border-accent rounded-[12px] transition-all duration-300 ease-custom hover:bg-accent/10">
+            <a class="text-accent no-underline font-semibold" [routerLink]="['/project-details', projectCardText().id]">{{
+                projectCardText().buttonText}}</a>
+        </button>
+    </div>
 </div>

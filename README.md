@@ -1,59 +1,70 @@
-# PortfolioApp
+# Jorge Subeldia - Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Welcome to the source code of my personal portfolio. This project showcases my skills, projects, and experience as a **Full Stack Developer**.
 
-## Development server
+## 🚀 Technologies Used
+
+- **Framework:** [Angular 21](https://angular.dev/) (leveraging Signals for efficient state management)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/) & [Flowbite](https://flowbite.com/)
+- **State Management:** Angular Signals
+- **Rendering:** Server-Side Rendering (SSR) for SEO and performance
+
+## ✨ Key Features
+
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop.
+- **Dynamic Routing:** Specific detail pages for each project.
+- **Multi-language Support:** Toggle between Spanish and English seamlessly.
+- **Modern Animations:** Smooth transitions and interactive UI elements.
+- **Optimized Performance:** Fast load times thanks to Angular's latest features and SSR.
+
+
+## 🛠 Project Structure
+
+- `src/app/components`: Reusable UI components (Navbar, Hero, Project Cards, etc.)
+- `src/app/pages`: Main application views (Home, Project Details).
+- `src/app/services`: Business logic and data management (Translation, etc.).
+- `public/`: Static assets and images.
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (latest LTS version recommended)
+- [Angular CLI](https://angular.dev/tools/cli)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/portfolio.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd portfolio-app
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development Server
 
 To start a local development server, run:
-
 ```bash
-ng serve
+npm start
 ```
+Navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Build
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+To build the project for production, run:
 ```bash
-ng generate component component-name
+npm run build
 ```
+The build artifacts will be stored in the `dist/` directory.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📧 Contact
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+**Jorge Subeldia**
+- **Email:** [subel.jorgeto@gmail.com](mailto:subel.jorgeto@gmail.com)
+- **Location:** Resistencia, Chaco - Argentina

@@ -1,5 +1,5 @@
 <nav
-        class="bg-[rgba(26,26,26,0.8)] fixed top-0 left-0 w-full px-[10%] py-4 backdrop-blur-xl flex justify-between items-center z-[1000] border-b border-white/10 transition-all duration-300">
+        class="bg-[rgba(26,26,26,0.8)] fixed top-0 left-0 w-full px-6 lg:px-[10%] py-4 backdrop-blur-xl flex justify-between items-center z-[1000] border-b border-white/10 transition-all duration-300">
         <div class="brand">
                 <a href="index.html" class="no-underline">
                         <h2 class="text-[1.8rem] font-bold text-text-primary">Portfo<span
@@ -7,18 +7,45 @@
                         </h2>
                 </a>
         </div>
-        <ul class="flex gap-8 items-center list-none m-0 p-0">
-                <li class="list-none"><a
+
+        <!-- Burger Menu Button -->
+        <button (click)="toggleMenu()" class="lg:hidden text-text-primary focus:outline-none z-[1001]">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        @if (!isMenuOpen()) {
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        } @else {
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        }
+                </svg>
+        </button>
+
+        <!-- Navigation Menu -->
+        <ul class="fixed lg:static top-0 right-0 h-screen lg:h-auto w-[280px] lg:w-auto bg-[#1a1a1a] lg:bg-transparent shadow-2xl lg:shadow-none flex flex-col lg:flex-row gap-8 items-center list-none m-0 p-12 lg:p-0 transition-transform duration-300 ease-in-out z-[1000] lg:translate-x-0"
+                [class.translate-x-0]="isMenuOpen()" [class.translate-x-full]="!isMenuOpen()">
+
+                <li class="list-none"><a (click)="closeMenu()"
                                 class="text-text-primary no-underline font-bold text-[1.1rem] transition-all duration-300"
-                                href="index.html">Inicio</a></li>
-                <li class="list-none"><a
+                                href="index.html">{{ navLinks().home }}</a></li>
+                <li class="list-none"><a (click)="closeMenu()"
                                 class="text-text-secondary no-underline font-bold text-[1.1rem] transition-all duration-300 hover:text-text-primary"
-                                href="#projects">Proyectos</a></li>
-                <li class="list-none"><a
+                                href="#projects">{{ navLinks().projects }}</a></li>
+                <li class="list-none"><a (click)="closeMenu()"
                                 class="text-text-secondary no-underline font-bold text-[1.1rem] transition-all duration-300 hover:text-text-primary"
-                                href="#about">Sobre mi</a></li>
-                <li class="list-none"><a
+                                href="#about">{{ navLinks().about }}</a></li>
+                <li class="list-none"><a (click)="closeMenu()"
                                 class="bg-accent-gradient px-[1.2rem] py-2 rounded-full text-white no-underline font-bold text-[1.1rem] transition-all duration-300 hover:opacity-90"
-                                href="#contact">Contacto</a></li>
+                                href="#contact">{{ navLinks().contact }}</a></li>
+                <li class="list-none lg:pl-4">
+                        <a class="text-text-secondary border border-white/10 rounded-full px-4 py-2 font-bold text-[1.1rem] transition-all duration-300 hover:text-text-primary"
+                                href="#"
+                                (click)="$event.preventDefault(); changeLanguage()">{{navLinks().langToggle}}</a>
+                </li>
         </ul>
+
+        <!-- Overlay -->
+        @if (isMenuOpen()) {
+        <div (click)="closeMenu()" class="fixed inset-0 bg-black/50 lg:hidden z-[999]"></div>
+        }
 </nav>

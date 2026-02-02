@@ -1,8 +1,10 @@
-<div id="projects" class="py-32 px-[10%] bg-[#1a1a1a]">
-    <div class="text-5xl font-bold mb-8 text-center">
-        <h2>Proyectos</h2>
+<div id="projects" class="py-20 px-6 lg:px-[10%] bg-[#1a1a1a]">
+    <div class="text-4xl md:text-5xl font-bold mb-12 text-center text-text-primary">
+        <h2>{{ projectListText().title}}</h2>
     </div>
     <div class="grid grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))] gap-2 max-w-[1200px] mx-auto">
-        <app-project-card />
+        @for (p of projects(); track p.id) {
+        <app-project-card [project]="p" />
+        }
     </div>
 </div>

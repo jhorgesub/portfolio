@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { ProjectList } from '../project-list/project-list';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-hero',
@@ -9,4 +10,18 @@ import { ProjectList } from '../project-list/project-list';
 })
 export class Hero {
 
+  private _translationService = inject(TranslationService);
+
+  lang = this._translationService.currentLanguage;
+  content = this._translationService.getContent();
+  readonly name = this._translationService.name;
+
+  heroText = computed(() => {
+    const currentLang = this.lang();
+    return {
+      greeting: this.content.hero.greeting[currentLang],
+      role: this.content.hero.role
+    }
+
+  })
 }

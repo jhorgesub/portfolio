@@ -6,7 +6,8 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { initCarousels } from 'flowbite';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Projects, TECH_ICONS } from '../../services/projects';
+import { ProjectsService, TECH_ICONS } from '../../services/projects.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-project-details',
@@ -18,13 +19,16 @@ export class ProjectDetails implements AfterViewInit {
 
   private platformId = inject(PLATFORM_ID);
   private route = inject(ActivatedRoute);
-  private _project = inject(Projects);
+  private _projectsService = inject(ProjectsService);
+  private _translationService = inject(TranslationService);
+
+  lang = this._translationService.currentLanguage;
 
   private params = toSignal(this.route.paramMap);
 
   project = computed(() => {
     const id = Number(this.params()?.get('id'));
-    return this._project.getProjectById(id);
+    return this._projectsService.getProjectById(id);
   });
 
   // Lightbox state
@@ -52,7 +56,6 @@ export class ProjectDetails implements AfterViewInit {
       this.currentImageIndex.update(i => i - 1);
     }
   }
-
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
@@ -103,6 +106,5 @@ export class ProjectDetails implements AfterViewInit {
       }
     }
   }
-
 
 }

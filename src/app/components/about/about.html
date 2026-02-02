@@ -1,24 +1,21 @@
-<div id="about" class="p-16 flex items-center text-bg-color gap-16 bg-[#1a1a1a]">
-    <img class="flex-1 max-w-[450px] rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-none"
-        src="/IMG_20201201_102842.jpg" alt="Jorge Subeldia retrato">
-    <div class="text-[3rem] font-bold mb-6 text-text-primary flex-1">
-        <h2 class="text-[3rem] font-bold mb-6 text-text-primary">Sobre mi</h2>
-        <div class="w-[60px] h-1 bg-accent-gradient mb-8 rounded-[2px]"></div>
-        <p class="text-[1.1rem] text-text-secondary mb-10 text-justify">Soy un Desarrollador Full Stack apasionado por
-            convertir
-            desafíos en soluciones efectivas. Con una sólida
-            formación en Java, Springboot, Python, Django, Angular, React y experiencia gestionando despliegues con
-            Docker y
-            AWS,
-            me enfoco en construir aplicaciones web modernas a través de un
-            enfoque analítico y proactivo. Mi objetivo es nunca dejar de aprender, asegurándome de aportar siempre ideas
-            nuevas
-            con un alto rendimiento a mi equipo y proyectos.
-        </p>
+<div id="about"
+    class="py-20 px-6 lg:px-[10%] flex flex-col lg:flex-row items-center text-bg-color gap-12 lg:gap-16 bg-[#1a1a1a]">
+    <div class="flex-1 max-w-[450px]">
+        <img class="w-full rounded-[24px] shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-none"
+            src="/IMG_20201201_102842.jpg" alt="{{ aboutText().portrait }}">
+    </div>
+    <div class="flex-1 text-center lg:text-left">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 text-text-primary">{{ aboutText().title }}</h2>
+        <div class="flex flex-col gap-4 text-base md:text-lg text-text-secondary mb-10 text-justify">
+            @for (paragraph of aboutText().description; track $index) {
+            <p>{{ paragraph }}</p>
+            }
+        </div>
         <a download href="img/JORGE SUBELDIA_ Full Stack - CV.pdf">
-            <button
-                class="py-4 px-10 bg-accent-gradient rounded-full border-none text-white cursor-pointer font-['Ubuntu'] font-semibold text-base transition-all duration-300 ease-custom shadow-[0_10px_20px_rgba(220,20,60,0.2)] hover:scale-105 hover:shadow-[0_15px_30px_rgba(220,20,60,0.4)] active:scale-95 hover:brightness-110">Descargar
-                CV</button>
+            <button class="py-4 px-10 bg-accent-gradient rounded-full border-none text-white cursor-pointer font-['Ubuntu'] font-semibold text-base transition-all duration-300 ease-custom shadow-[0_10px_20px_rgba(220,20,60,0.2)] 
+                hover:scale-105 hover:shadow-[0_15px_30px_rgba(220,20,60,0.4)] active:scale-95 hover:brightness-110">
+                {{ aboutText().cv }}
+            </button>
         </a>
     </div>
 </div>
