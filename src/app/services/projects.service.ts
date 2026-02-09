@@ -76,8 +76,8 @@ export class ProjectsService {
         ]
       },
       technologies: ['Angular', 'Tailwind'],
-      image: '/Todo_Click.png',
-      carouselImages: ['/Todo_Click.png'],
+      image: 'Todo_Click/Todo_Click.png',
+      carouselImages: ['Todo Click/Todo_Click.png'],
       githubLink: 'https://github.com/jhorgesub/todoclick-ecommerce.git'
     },
     {
@@ -99,8 +99,54 @@ export class ProjectsService {
       },
       technologies: ['Python', 'Django', 'PostgreSQL', 'HTML/CSS', 'JavaScript'],
       image: 'imgJogoBonito/1.PNG',
-      carouselImages: ['imgJogoBonito/1.PNG', 'imgJogoBonito/2.PNG'],
+      carouselImages: ['imgJogoBonito/1.PNG', 'imgJogoBonito/2.PNG', 'imgJogoBonito/4.PNG', 'imgJogoBonito/5.PNG',
+        'imgJogoBonito/12.PNG'],
       githubLink: 'https://github.com/jhorgesub/Gestion_turnos'
+    },
+    {
+      id: 4,
+      title: { es: 'Smart Cities', en: 'Smart Cities' },
+      description: { 
+        es: 'Gestión de reservas de canchas de Fútbol 5.', 
+        en: 'Management of 5-a-side football field reservations.' 
+      },
+      fullDescription: {
+        es: [
+          'JOGO BONITO es una plataforma integral para la gestión de reservas de canchas de Fútbol 5. El sistema optimiza la administración de alquileres mediante un panel de control para propietarios y una interfaz intuitiva para jugadores,',
+          'implementando una arquitectura basada en roles que garantiza seguridad y escalabilidad en el manejo de turnos y usuarios.'
+        ],
+        en: [
+          'JOGO BONITO is a comprehensive platform for sports center reservation management. The system optimizes rental administration through a dedicated control panel for owners and an intuitive interface for players.',
+          'Originally developed as a final project for Phase 2 (Web Development) of Informatorio Chaco 2020, it implements a role-based architecture that ensures security and scalability for managing appointments and users.'
+        ]
+      },
+      technologies: ['Python', 'Django', 'PostgreSQL', 'HTML/CSS', 'JavaScript'],
+      image: 'imgJogoBonito/1.PNG',
+      carouselImages: ['imgJogoBonito/1.PNG', 'imgJogoBonito/2.PNG', 'imgJogoBonito/4.PNG', 'imgJogoBonito/5.PNG',
+        'imgJogoBonito/12.PNG'],
+      githubLink: 'https://github.com/jhorgesub/Gestion_turnos'
+    },
+    {
+      id: 5,
+      title: { es: 'Portfolio', en: 'Portfolio' },
+      description: { 
+        es: 'Mi Portfolio para mostrar mis proyectos personales y académicos.', 
+        en: 'My Portfolio to show my personal and academic projects.' 
+      },
+      fullDescription: {
+        es: [
+          'Mi Portfolio para mostrar mis proyectos personales y académicos.'
+        ],
+        en: [
+          'My Portfolio to show my personal and academic projects.'
+        ]
+      },
+      technologies: ['Angular', 'Tailwind'],
+      image: 'Portfolio/portfolio1.png',
+      carouselImages: ['/Portfolio/portfolio1.png', '/Portfolio/portfolio2.png', 
+        '/Portfolio/portfolio3.png'
+      ],
+      githubLink: 'https://github.com/jhorgesub/portfolio'
     }
   ];
 
